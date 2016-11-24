@@ -37,7 +37,7 @@ public class MainActivity extends BluetoothBaseActivity {
         showDeviceListDialog();
     }
 
-    @OnClick(R.id.send) void onSendClick(){}
+    @OnClick(R.id.send) void onSendClick(){ senMessage("test");}
 
     @Override
     public void onBluetoothDisabled() {

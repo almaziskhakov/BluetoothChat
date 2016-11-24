@@ -35,7 +35,6 @@ public abstract class BluetoothBaseActivity extends AppCompatActivity implements
         Dart.inject(this);
 
         bluetoothSerial = new BluetoothSerial(this, this);
-        bluetoothSerial.getConnectedDeviceAddress();
     }
 
     @Override public void setContentView(int layoutResID) {
@@ -89,6 +88,17 @@ public abstract class BluetoothBaseActivity extends AppCompatActivity implements
     }
 
     @Override
+    public void onBluetoothSerialRead(String message) {
+        // Print the incoming message on the terminal screen
+        String m = message;
+    }
+
+    @Override
+    public void onBluetoothSerialWrite(String message) {
+
+    }
+
+    @Override
     public void onBluetoothNotSupported() {
         new AlertDialog.Builder(this)
                 .setMessage(R.string.bluetooth_activity_no_bluetooth)
@@ -106,5 +116,9 @@ public abstract class BluetoothBaseActivity extends AppCompatActivity implements
     public void onBluetoothDeviceSelected(BluetoothDevice device) {
         // Connect to the selected remote Bluetooth device
         bluetoothSerial.connect(device);
+    }
+
+    protected void senMessage(String message) {
+        bluetoothSerial.write(message);
     }
 }
