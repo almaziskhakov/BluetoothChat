@@ -39,7 +39,6 @@ public abstract class BluetoothBaseActivity extends AppCompatActivity implements
 
     @Override public void setContentView(int layoutResID) {
         super.setContentView(layoutResID);
-        ButterKnife.bind(this);
     }
 
     @Override
