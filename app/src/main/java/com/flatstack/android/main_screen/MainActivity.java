@@ -6,7 +6,6 @@ import android.support.v7.widget.Toolbar;
 
 import com.flatstack.android.Navigator;
 import com.flatstack.android.R;
-import com.flatstack.android.utils.di.Injector;
 
 import butterknife.Bind;
 import butterknife.OnClick;
@@ -19,7 +18,6 @@ public class MainActivity extends BluetoothBaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setSupportActionBar(toolbar);
-        Injector.inject(this);
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
@@ -36,8 +34,6 @@ public class MainActivity extends BluetoothBaseActivity {
     @OnClick(R.id.bt_scan) void onScanClick(){
         showDeviceListDialog();
     }
-
-    @OnClick(R.id.send) void onSendClick(){ senMessage("test");}
 
     @Override
     public void onBluetoothDisabled() {

@@ -36,8 +36,16 @@ public class NotificationsInteractor {
                 .setContentText(message)
                 .setNumber(0)
                 .setSmallIcon(R.drawable.ic_launcher)
+                //TODO STYLE
+//                          .setStyle(new NotificationCompat.MessagingStyle("Me")
+//                          .setConversationTitle("Example Playground Chat")
+//                          .addMessage("Lorem", 1, null) // null means device's user
+//                          .addMessage("ipsum", 2, "Bot")
+//                          .addMessage("dolor", 3, "Bot")
+//                          .addMessage("sit amet", 4, null));
                 .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION))
-                .setContentIntent(pendingIntent).build();
+                .setContentIntent(pendingIntent)
+                .build();
 
         notification.flags = Notification.FLAG_AUTO_CANCEL;
         manager.notify(0, notification);
