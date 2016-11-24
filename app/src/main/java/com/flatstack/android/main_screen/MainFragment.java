@@ -39,6 +39,7 @@ import com.flatstack.android.Navigator;
 import com.flatstack.android.R;
 import com.flatstack.android.devices_screen.DevicesActivity;
 import com.flatstack.android.utils.HomeAsUp;
+import com.flatstack.android.utils.NotificationsInteractor;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -115,9 +116,12 @@ public class MainFragment extends Fragment {
         return fragment;
     }
 
+    private NotificationsInteractor notificationsInteractor;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        notificationsInteractor = new NotificationsInteractor(getContext());
 
         // Get local Bluetooth adapter
         mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
@@ -316,6 +320,7 @@ public class MainFragment extends Fragment {
                     byte[] readBuf = (byte[]) msg.obj;
                     // construct a string from the valid bytes in the buffer
                     String readMessage = new String(readBuf, 0, msg.arg1);
+                    notificationsInteractor.senNotification(readMessage);
                     mConversationArrayAdapter.add(mConnectedDeviceName + ":  " + readMessage);
                     break;
                 case Constants.MESSAGE_DEVICE_NAME:
