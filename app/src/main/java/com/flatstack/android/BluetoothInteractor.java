@@ -20,6 +20,7 @@ public class BluetoothInteractor {
     public BluetoothInteractor(@NonNull Context context){
         mContext = context;
         mBluetooth = new BluetoothSPP(context);
+        mBluetooth.setupService();
     }
 
     public boolean isBluetoothAvalible(){
@@ -46,14 +47,6 @@ public class BluetoothInteractor {
         if(requestCode == BluetoothState.REQUEST_CONNECT_DEVICE) {
             if(resultCode == Activity.RESULT_OK)
                 mBluetooth.connect(data);
-        } else if(requestCode == BluetoothState.REQUEST_ENABLE_BT) {
-            if(resultCode == Activity.RESULT_OK) {
-                mBluetooth.setupService();
-                mBluetooth.startService(BluetoothState.DEVICE_ANDROID);
-//                setup();
-            } else {
-                // Do something if user doesn't choose any device (Pressed back)
-            }
         }
     }
 
