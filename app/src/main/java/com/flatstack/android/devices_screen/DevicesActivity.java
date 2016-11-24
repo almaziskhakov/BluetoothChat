@@ -56,11 +56,7 @@ public class DevicesActivity extends MvpBaseActivity implements BluetoothView {
         mBluetoothPresenter.showPairedDevices();
         IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_FOUND);
         registerReceiver(mReceiver, filter);
-
-        BluetoothAdapter ba = BluetoothAdapter.getDefaultAdapter();
-        if(ba.isDiscovering())
-            ba.cancelDiscovery();
-        ba.startDiscovery();
+        mBluetoothPresenter.startFindingDevices();
 
         showDevices();
     }

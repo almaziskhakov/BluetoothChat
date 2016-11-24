@@ -8,6 +8,9 @@ import android.support.v4.app.FragmentActivity;
 
 import com.flatstack.android.devices_screen.DevicesActivity;
 
+import app.akexorcist.bluetotohspp.library.BluetoothState;
+import app.akexorcist.bluetotohspp.library.DeviceList;
+
 /**
  * Created by Revern on 24.11.2016.
  */
@@ -23,5 +26,9 @@ public class Navigator {
 
     public static void devices(@NonNull FragmentActivity activity){
         activity.startActivityForResult(new Intent(activity, DevicesActivity.class), REQUEST_CONNECT_DEVICE_INSECURE);
+    }
+
+    public static void devicesList(@NonNull FragmentActivity activity) {
+        activity.startActivityForResult(new Intent(activity, DeviceList.class), BluetoothState.REQUEST_CONNECT_DEVICE);
     }
 }
