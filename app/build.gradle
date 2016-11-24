@@ -122,6 +122,7 @@ dependencies {
     testCompile 'com.squareup.assertj:assertj-android:1.0.0'
     provided 'javax.annotation:jsr250-api:1.0'
     compile 'com.akexorcist:bluetoothspp:1.0.0'
+    compile 'com.macroyau:blue2serial:0.1.5'
 }
 
 configurations {
