@@ -26,6 +26,8 @@
             android:name=".devices_screen.DevicesActivity"
             android:label="@string/title_activity_devices"
             android:theme="@style/AppTheme"></activity>
+
+        <activity android:name="app.akexorcist.bluetoothspp.DeviceList" />
     </application>
 
 </manifest>
