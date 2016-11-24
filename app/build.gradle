@@ -7,7 +7,7 @@ ext {
 
     isTravis = "true".equals(System.getenv("TRAVIS")) // change if use not travis
 
-    commitMessage = 'git log -1 --pretty=%B'.execute().text.trim()
+//    commitMessage = 'git log -1 --pretty=%B'.execute().text.trim()
 }
 
 android {
