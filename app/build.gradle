@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'me.tatarka.retrolambda'
+apply plugin: 'com.neenbedankt.android-apt'
 
 ext {
     APPLICATION_ID = "com.flatstack.android"
@@ -90,22 +91,36 @@ repositories {
 dependencies {
     compile "com.android.support:appcompat-v7:$SUPPORT_LIBRARY_VERSION" // appcompat
 
-    compile 'com.jakewharton:butterknife:7.0.0' // view injection
-    compile 'com.jakewharton.timber:timber:2.5.0' // logging
+    // logging
 
-    compile 'com.github.bumptech.glide:glide:3.7.0'
+    // activity arguments arguments inject
 
-    compile 'com.f2prateek.dart:dart:1.1.0' // activity arguments arguments inject
+    // async job and events
 
-    compile 'com.google.code.gson:gson:2.4'
+    //MVP moxy-android
+    compile "com.arello-mobile:moxy:$MOXY_VERSION"
+    compile "com.arello-mobile:moxy-android:$MOXY_VERSION"
+    provided "com.arello-mobile:moxy-compiler:$MOXY_VERSION"
 
-    compile 'io.reactivex:rxandroid:1.0.1' // async job and events
-    compile 'io.reactivex:rxjava:1.0.14'
+    //butterknife
+    compile "com.jakewharton:butterknife:$BUTTERKNIFE_VERSION"
+
+    //DI dagger
+    apt "com.google.dagger:dagger-compiler:$DAGGER_VERSION"
+    compile "com.google.dagger:dagger:$DAGGER_VERSION"
 
     testCompile "com.android.support:support-annotations:$SUPPORT_LIBRARY_VERSION"
+    compile 'com.jakewharton.timber:timber:2.5.0'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.f2prateek.dart:dart:1.1.0'
+    compile 'com.google.code.gson:gson:2.4'
+    compile 'io.reactivex:rxandroid:1.0.1'
+    compile 'io.reactivex:rxjava:1.0.14'
+    compile 'com.android.support:design:24.2.1'
     testCompile 'junit:junit:4.12'
     testCompile 'org.robolectric:robolectric:3.0'
     testCompile 'com.squareup.assertj:assertj-android:1.0.0'
+    provided 'javax.annotation:jsr250-api:1.0'
 }
 
 configurations {
